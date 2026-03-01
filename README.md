@@ -19,7 +19,6 @@
 
 Medi-Master is a state-of-the-art medical diagnostic assistant designed for clinical speed, security, and precision. Built on a high-performance Flask and MySQL architecture, it evaluates complex, multi-symptom profiles to securely identify and recommend pharmacological interventions.
 
-It features a minimalist, corporate-grade Apple/Northern Trust inspired design system and automated hospital-grade PDF report generation.
 
 ---
 
