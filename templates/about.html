@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}About | Medi-Master{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content-col">
+        <h1 class="hero-title">About Medi-Master</h1>
+        <p class="hero-subtitle">A state-of-the-art medical assistant built for clinical speed, security, and precision.
+        </p>
+
+        <div class="card">
+            <h2 class="mb-3" style="font-size: 1.25rem;">Our Mission</h2>
+            <p><strong>Medi-Master</strong> is an intelligent medical diagnostic assistant that securely identifies
+                medication requirements based on complex, multi-symptom profiles.</p>
+
+            <h3 class="mt-4 mb-2" style="font-size: 1.1rem;">Designed For</h3>
+            <ul class="results-list mb-4">
+                <li>Doctors & Medical Professionals</li>
+                <li>Medical Trainees & Students</li>
+                <li>Research Applications</li>
+            </ul>
+
+            <p class="mb-2" style="font-size: 0.95rem; color: var(--text-secondary);">Built on Flask and MySQL
+                architecture for high-performance data retrieval and guaranteed low latency.</p>
+            <p class="text-secondary" style="font-size: 0.8rem; margin-top: 2rem;">Version 1.0 (Production) |
+                Medi-Master Healthcare Systems</p>
+        </div>
+    </div>
+    <div class="hero-image-col">
+        <img src="{{ url_for('static', filename='assets/red-cross.png') }}" alt="Medi-Master Cross">
+    </div>
+</div>
+{% endblock %}

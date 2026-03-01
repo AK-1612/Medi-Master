@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Diagnostic Results | Medi-Master{% endblock %}
+
+{% block content %}
+<div class="hero-section" style="justify-content: center;">
+    <div class="card" style="width: 100%; max-width: 700px;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h1 class="hero-title" style="font-size: 2.25rem;">Diagnostic Results</h1>
+            <p class="text-secondary">Based on the provided multi-symptom profile, the following medications are cleared
+                for prescription.</p>
+        </div>
+
+        <div
+            style="background-color: var(--bg-primary); padding: 2rem; border-radius: var(--border-radius-md); border: 1px solid rgba(0,0,0,0.04);">
+            {% if medicines %}
+            <ul class="results-list">
+                {% for med in medicines %}
+                <li>{{ med }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <div class="text-center" style="padding: 2rem 0;">
+                <p style="font-size: 1.1rem; color: var(--text-primary); font-weight: 500;">No clear diagnostic match
+                    found.</p>
+                <p class="text-secondary mb-0">Please broaden the symptom matrix or consult the full database.</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2.5rem;">
+            <a href="{{ url_for('patient_form') }}" class="btn btn-primary">Proceed to Patient Intake</a>
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">Revise Symptoms</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

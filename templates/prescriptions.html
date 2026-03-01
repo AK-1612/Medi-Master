@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Prescription Ready | Medi-Master{% endblock %}
+
+{% block content %}
+<div style="display: flex; align-items: center; justify-content: center; min-height: 50vh; padding: 2rem 0;">
+    <div class="card text-center" style="max-width: 550px; width: 100%;">
+        <div class="mb-4">
+            <img src="{{ url_for('static', filename='assets/red-cross.png') }}" alt="Red Cross"
+                style="width: 70px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.08)); border-radius: 16px;">
+        </div>
+
+        <h1 class="mb-3" style="font-size: 2.25rem;">Prescription Generated</h1>
+
+        <p class="mb-4" style="color: var(--text-secondary);">
+            Your medical evaluation is complete. The system has recorded the diagnosis and prepared your clinical
+            prescription. You can now safely close this window or start a new diagnostic consultation.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+            <a href="{{ url_for('home') }}" class="btn btn-primary" style="padding: 0.9rem 2.5rem;">Start New
+                Consultation</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

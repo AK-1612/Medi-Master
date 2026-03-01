@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Database | Medi-Master{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h1 class="hero-title" style="font-size: 2.5rem;">Medical Database</h1>
+    <p class="hero-subtitle mb-0">Complete registry of available medications, prerequisites, and alternatives.</p>
+</div>
+
+{% if function_result or procedure_result %}
+<div class="flash-messages mb-4">
+    {% if function_result %}
+    <div class="flash-message mb-2">
+        <strong style="margin-right: 8px;">Access Log:</strong> {{ function_result }}
+    </div>
+    {% endif %}
+    {% if procedure_result %}
+    <div class="flash-message">
+        <strong style="margin-right: 8px;">System Record:</strong> {{ procedure_result }}
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+
+<div class="data-table-wrapper">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Medicine Name</th>
+                <th>Type</th>
+                <th>Pre-Requisite</th>
+                <th>Need</th>
+                <th>Alternative</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for med in medicines %}
+            <tr>
+                <td style="font-weight: 500; color: var(--text-primary);">{{ med[0] }}</td>
+                <td style="color: var(--text-secondary);">{{ med[1] }}</td>
+                <td style="color: var(--text-secondary);">{{ med[2] }}</td>
+                <td style="color: var(--text-secondary);">{{ med[3] }}</td>
+                <td style="color: var(--text-secondary);">{{ med[4] }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" class="text-center" style="padding: 3rem;">No medicines found in the database.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

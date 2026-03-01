@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Medi-Master{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content-col">
+        <h1 class="hero-title">Intelligent Medical Diagnosis.</h1>
+        <p class="hero-subtitle">Experience a state-of-the-art diagnostic tool designed to evaluate multi-symptom
+            profiles and recommend accurate medication instantly.</p>
+
+        <div class="card">
+            <h2 class="mb-3" style="font-size: 1.25rem;">Select Patient Symptoms</h2>
+            <form method="POST" action="{{ url_for('results') }}">
+                <div class="form-group">
+                    <label for="symptoms" class="mb-2">Search or Choose Symptoms:</label>
+                    <select name="symptoms" id="symptoms" multiple required>
+                        {% for category, symptoms in categorized_symptoms.items() %}
+                        <optgroup label="{{ category }}">
+                            {% for symptom in symptoms %}
+                            <option value="{{ symptom }}">{{ symptom }}</option>
+                            {% endfor %}
+                        </optgroup>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">Generate Recommendation</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="hero-image-col">
+        <img src="{{ url_for('static', filename='assets/red-cross.png') }}" alt="Medi-Master Cross">
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function () {
+        $('#symptoms').select2({
+            placeholder: "Search or select symptoms...",
+            width: '100%',
+            allowClear: true
+        });
+    });
+</script>
+{% endblock %}
